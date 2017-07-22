@@ -7,10 +7,13 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -32,6 +35,9 @@ public class SetupScreen extends AppCompatActivity {
     TextView un,hint;
     AnalyticsApplication application;
     private Tracker mTracker;
+    SharedPreferences prefs;
+    SharedPreferences.Editor ed;
+    FingerprintManagerCompat fingerprintManagerCompat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +47,9 @@ public class SetupScreen extends AppCompatActivity {
         b = (Button) findViewById(R.id.button);
         un = (TextView) findViewById(R.id.tvUn);
         hint = (TextView) findViewById(R.id.tvHint);
+
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        ed = prefs.edit();
 
         // Analytics
         application = (AnalyticsApplication) getApplication();
@@ -94,9 +103,19 @@ public class SetupScreen extends AppCompatActivity {
         dpm = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
         cmp = new ComponentName(this, DeviceAdminReceiver.class);
 
+        fingerprintManagerCompat = FingerprintManagerCompat.from(this);
+
+        if (fingerprintManagerCompat.isHardwareDetected()) {
+            boolean fingerUse = prefs.getBoolean("fingerUse",false);
+
+            if(!fingerUse) {
+                Intent i = new Intent (SetupScreen.this, FingerprintPrompt.class);
+                startActivity(i);
+            }
+        }
+
         if (!dpm.isAdminActive(cmp))
             getAdminRights();
-
 
 
     }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#1565c0"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        android:paddingTop="25dp"
+        android:paddingLeft="10dp"
+        android:gravity="center"
+        android:paddingRight="10dp"
+        android:text="Your phone seems to be having a fingerprint scanner. The app works on such phones but after locking using the software lock button, the phone asks for the password or the pin instead of the fingerprint. This way you'll have to enter them every time you unlock your phone after locking it using the software lock button. If you still want to use the app then you can but it's totally okay if you want to uninstall it. I won't mind. :)"/>
+
+    <Button
+        android:id="@+id/uninstall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center"
+        android:text="Uninstall"/>
+
+    <Button
+        android:id="@+id/useit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center"
+        android:text="use it anyway"/>
+
+</LinearLayout>

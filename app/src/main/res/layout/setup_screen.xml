@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#aebd38"
+    android:background="#1565c0"
     tools:context="com.sanved.instantlockbutton.SetupScreen">
 
     <Button
@@ -26,10 +26,10 @@
         android:padding="8dp"
         android:layout_centerHorizontal="true"
         android:textSize="18sp"
-        android:textColor="#000"
+        android:textColor="#fff"
         android:gravity="center"
         android:visibility="gone"
-        android:text="Now press that floating button to lock"/>
+        android:text="Move this button anywhere you want.\nClick it to lock the screen"/>
 
     <TextView
         android:id="@+id/tvUn"
@@ -39,7 +39,7 @@
         android:clickable="true"
         android:textStyle="bold"
         android:textSize="18sp"
-        android:textColor="#000"
+        android:textColor="#fff"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
