@@ -87,16 +87,28 @@ public class SetupScreen extends AppCompatActivity {
             }
         });
 
+
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mTracker.send(new HitBuilders.EventBuilder()
-                        .setCategory("Usage")
-                        .setAction("Enabled Button")
-                        .build());
-                Intent i = new Intent(SetupScreen.this, FloatingService.class);
-                startService(i);
-                hint.setVisibility(View.VISIBLE);
+                boolean overlayAllowed = true;
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (!Settings.canDrawOverlays(SetupScreen.this)) {
+                        overlayAllowed = false;
+                        checkDrawPermission();
+                    }
+                }
+
+                if(overlayAllowed) {
+                    mTracker.send(new HitBuilders.EventBuilder()
+                            .setCategory("Usage")
+                            .setAction("Enabled Button")
+                            .build());
+                    Intent i = new Intent(SetupScreen.this, FloatingService.class);
+                    startService(i);
+                    hint.setVisibility(View.VISIBLE);
+                }
             }
         });
 
