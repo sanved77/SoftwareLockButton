@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#311b92"
-    tools:context="com.sanved.instantlockbutton.SetupScreen">
+    tools:context="com.tapkeer.screenonoff.SetupScreen">
 
     <Button
         android:id="@+id/button"

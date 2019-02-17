@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1565c0"
-    tools:context="com.sanved.instantlockbutton.SetupScreen">
+    android:background="#336B87"
+    tools:context="com.tapkeer.screenonoff.SetupScreen">
 
     <Button
         android:id="@+id/button"
@@ -15,7 +15,7 @@
         android:layout_centerVertical="true"
         android:background="@drawable/circle_btn"
         android:text="Press to Enable\nFloating Button"
-        android:textColor="#000"
+        android:textColor="#fff"
         android:textSize="20sp"
         android:textAllCaps="false" />
 
